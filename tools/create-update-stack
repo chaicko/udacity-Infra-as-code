@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+if $DIR/describe-stack $1 >/dev/null 2>&1; then
+    echo "Updating stack \"$1\""
+    $DIR/update-stack $1 $2 $3
+else
+    echo "Stack \"$1\" does not exist, creating..."
+    $DIR/create-stack $1 $2 $3
+fi

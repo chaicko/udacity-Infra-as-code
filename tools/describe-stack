@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+aws --region=us-west-2 \
+    cloudformation describe-stacks \
+    --stack-name $1
