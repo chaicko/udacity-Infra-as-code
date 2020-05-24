@@ -1,0 +1,14 @@
+[
+	{
+		"ParameterKey": "EnvironmentName",
+		"ParameterValue": "UdacityProject2Schwoykoski"
+	},
+	{
+		"ParameterKey": "S3BucketName",
+		"ParameterValue": "schwoykoski-udacity-project2-bucket"
+	},
+	{
+		"ParameterKey": "ZipFileName",
+		"ParameterValue": "webapp.zip"
+	}
+]
