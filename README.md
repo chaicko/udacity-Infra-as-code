@@ -124,3 +124,11 @@ stack with :
 ```
 ./recreate-stack UdagramProductionServers templates/server.yml templates/server-parameters.json
 ```
+
+### WebApp URL
+
+The WebApp URL can be retrieved by using the following helper:
+```
+./get-webapp-url templates/server-parameters.json
+http://Udagr-WebAp-12SOXAQQAZ01K-1344202734.us-west-2.elb.amazonaws.com
+```
