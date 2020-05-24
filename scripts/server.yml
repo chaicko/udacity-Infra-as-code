@@ -110,7 +110,6 @@ Resources:
           # aws s3 cp s3://${S3BucketName}/${ZipFileName} .
           # unzip -o ${ZipFileName}
           # rm ${ZipFileName}
-          sleep 5  # simulate a delay start of the app
           systemctl start apache2.service
 
       ImageId: ami-005bdb005fb00e791
