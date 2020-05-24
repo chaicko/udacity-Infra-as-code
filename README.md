@@ -1,5 +1,7 @@
 
 # **Udacity DevOps NanoDegree**
+[![Build Status](https://travis-ci.org/chaicko/udacity-infra-as-code.svg?branch=master)](https://travis-ci.org/chaicko/udacity-infra-as-code)
+
 
 ## **Project 2: Deploy a High-Availability Web App using CloudFormation**
 This repository show cases the solution for the for the second project on Infrastructure as Code of the Udacity DevOps Nanodegree.
