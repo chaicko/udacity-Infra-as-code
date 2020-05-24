@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+echo "Deleting stack \"$1\""
+$DIR/delete-stack $1
+aws cloudformation wait stack-delete-complete \
+    --stack-name $1
+echo "Creating stack \"$1\""
+$DIR/create-stack $1 $2 $3
