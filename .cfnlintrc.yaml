@@ -1,4 +1,4 @@
 templates:
-- templates/*.yaml
+- templates/*.yml
 include_checks:
 - I
