@@ -96,6 +96,7 @@ Resources:
   WebAppLaunchConfig:
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
+      # AssociatePublicIpAddress: true
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
@@ -112,6 +113,7 @@ Resources:
 
       ImageId: ami-005bdb005fb00e791
       IamInstanceProfile: !Ref MyInstanceProfile
+      # KeyName: devel-ec2
       SecurityGroups:
       - Ref: WebServerSecGroup
       InstanceType: t3.small
