@@ -102,6 +102,7 @@ Resources:
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
+          export DEBIAN_FRONTEND=noninteractive
           apt-get update -y
           apt-get install unzip awscli -y
           apt-get install apache2 -y
