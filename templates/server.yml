@@ -106,9 +106,9 @@ Resources:
           apt-get install apache2 -y
           cd /var/www/html
           echo "Udacity Demo Web Server Up and Running!" > index.html
-          # aws s3 cp s3://${S3BucketName}/${ZipFileName} .
-          # unzip -o ${ZipFileName}
-          # rm ${ZipFileName}
+          aws s3 cp s3://${S3BucketName}/${ZipFileName} .
+          unzip -o ${ZipFileName}
+          rm ${ZipFileName}
           systemctl start apache2.service
 
       ImageId: ami-005bdb005fb00e791
