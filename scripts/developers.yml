@@ -40,11 +40,11 @@ Resources:
   #     Bucket: !Ref S3Bucket
 
 Outputs:
-  # WebsiteURL:
-  #   Value: !GetAtt
-  #     - S3Bucket
-  #     - WebsiteURL
-  #   Description: URL for website hosted on S3
+  BucketName:
+    Value: !Ref S3Bucket
+    Description: The Bucket name for developers to use
+    Export:
+      Name: !Sub ${EnvironmentName}-BUCKET
   S3BucketSecureURL:
     Value: !Join
       - ''
@@ -52,6 +52,6 @@ Outputs:
         - !GetAtt
           - S3Bucket
           - DomainName
-    Description: Name of S3 bucket to hold website content
+    Description: HTTPs endpoint of the bucket
     Export:
       Name: !Sub ${EnvironmentName}-S3-URL
