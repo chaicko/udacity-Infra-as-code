@@ -179,9 +179,9 @@ Resources:
         Fn::ImportValue:
           Fn::Sub: "${EnvironmentName}-VPCID"
 
-# Outputs:
-#   URL:
-#     Description: URL to the LB endpoint
-#     Value: !Sub "http://${WebAppLB.DNSName}"
-#     Export:
-#       Name: !Sub ${EnvironmentName}-URL
+Outputs:
+  URL:
+    Description: URL to the LB endpoint
+    Value: !Sub "http://${WebAppLB.DNSName}"
+    Export:
+      Name: !Sub ${EnvironmentName}-LB-URL
