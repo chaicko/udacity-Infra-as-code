@@ -1,0 +1,4 @@
+templates:
+- templates/*.yaml
+include_checks:
+- I
