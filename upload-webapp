@@ -1,0 +1,57 @@
+#!/usr/bin/env python
+
+import argparse
+import json
+import glob
+
+import sh
+
+def _delete_file(path, ignore_errors=False):
+    try:
+        sh.rm(path)
+    except Exception:
+        if not ignore_errors:
+            raise
+
+
+parser = argparse.ArgumentParser(description='upload webapp form dir')
+parser.add_argument(
+    '-d',
+    '--dir',
+    dest='dir',
+    help='JSON file with BucketName and ZipFileName contents',
+    required=True,
+    default='webapp',
+    metavar='WEBAPPDIR'
+)
+parser.add_argument(
+    '-p',
+    '--params',
+    dest='params',
+    type=argparse.FileType('r'),
+    help='JSON file with BucketName and ZipFileName contents',
+    required=True,
+    metavar='PARAMS'
+)
+
+args = parser.parse_args()
+params = {
+    p["ParameterKey"]: p["ParameterValue"]
+    for p in json.load(args.params)
+}
+
+bucket = params["S3BucketName"]
+zipname = params["ZipFileName"]
+webappfiles = glob.glob("{}/*.*".format(args.dir))
+s3uri = "s3://{}/{}".format(bucket, zipname)
+
+_delete_file(zipname, ignore_errors=True)
+
+# Zip file, then upload with aws s3
+try:
+    print("Creating zipfile {}".format(zipname))
+    sh.zip("-j", zipname, *webappfiles)
+    print("Uploading to {}".format(s3uri))
+    sh.aws.s3.cp(zipname, s3uri)
+finally:
+    _delete_file(zipname)
