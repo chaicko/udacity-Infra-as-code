@@ -46,12 +46,7 @@ Outputs:
     Export:
       Name: !Sub ${EnvironmentName}-BUCKET
   S3BucketSecureURL:
-    Value: !Join
-      - ''
-      - - 'https://'
-        - !GetAtt
-          - S3Bucket
-          - DomainName
+    Value: !Sub "https://${S3Bucket.DomainName}"
     Description: HTTPs endpoint of the bucket
     Export:
       Name: !Sub ${EnvironmentName}-S3-URL
