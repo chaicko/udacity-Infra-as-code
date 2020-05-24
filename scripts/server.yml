@@ -49,7 +49,7 @@ Resources:
       Roles:
         - !Ref UdacityS3ReadOnlyEC2
 
-  MyInstanceProfile:
+  WebAppServerIamProfile:
     Type: AWS::IAM::InstanceProfile
     Properties:
       Roles:
@@ -112,7 +112,7 @@ Resources:
           systemctl start apache2.service
 
       ImageId: ami-005bdb005fb00e791
-      IamInstanceProfile: !Ref MyInstanceProfile
+      IamInstanceProfile: !Ref WebAppServerIamProfile
       # KeyName: devel-ec2
       SecurityGroups:
       - Ref: WebServerSecGroup
