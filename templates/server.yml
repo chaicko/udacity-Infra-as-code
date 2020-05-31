@@ -15,6 +15,10 @@ Parameters:
     Description: The name of the zipfile with the Udagram code
     Type: String
 
+  OutputUrlKeyName:
+    Description: The name of the output KEY where the url is exposed
+    Type: String
+
 
 Resources:
 
@@ -181,4 +185,4 @@ Outputs:
     Description: URL to the LB endpoint
     Value: !Sub "http://${WebAppLB.DNSName}"
     Export:
-      Name: !Sub ${EnvironmentName}-LB-URL
+      Name: !Sub ${OutputUrlKeyName}

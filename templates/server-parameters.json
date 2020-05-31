@@ -10,5 +10,9 @@
 	{
 		"ParameterKey": "ZipFileName",
 		"ParameterValue": "webapp.zip"
+	},
+	{
+		"ParameterKey": "OutputUrlKeyName",
+		"ParameterValue": "UdacityProject2SchwoykoskiUrl"
 	}
 ]
